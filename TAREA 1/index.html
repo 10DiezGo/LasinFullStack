@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">Diego Elvim Aliaga Candia</div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#acerdade">Acercade</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#contacto">Contactos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <div class="container person">
+                <div class="person-content">
+                    <h1>Hola, soy Diego Elvim Aliaga Candia</h1>
+                    <p>Estudiante de la Universidad Mayor de San Andres <br>
+                    Carrera de Informatica
+                    </p>
+                    <a href="#contacto" class="btn">Contactame</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="acercade">
+            <div class="container about">
+                <h2>Acerca de mi</h2>
+                <p>Soy un estudiante de la Universidad Mayor de San Andres de la facultad
+                   de Ciencias Puras y Naturales, carrera Informatica. Me apasiona la programación
+                   y los video juegos.
+
+                </p>
+                <div class="Lenguajes">Lenguajes de Programacion:
+                    <div class="item-l">Nodejs (nestjs, express)</div>
+                    <div class="item-l">Php (laravel)</div>
+                    <div class="item-l">Python (django)</div>
+                    <div class="item-l">Java (spring)</div>
+                    <div class="item-l">JavaScript/typescript (react, angular)</div>
+                    <div class="item-l">Base de datos (mysql, postgressql)</div>
+                </div>
+            </div>    
+        </section>
+
+      <section id="servicios">
+        <div class="container">
+          <h2>Mis proyectos implementados</h2>
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-img">🏫</div>
+              <div class="project-info">
+                <h3>Sistema de Gestion Academica</h3>
+                <p>
+                  Sistema de Gestion academica parametrizable para un colegio
+                </p>
+                <div>
+                  <span class="tech-badge">U.E. Don Bosco</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-img">📚</div>
+              <div class="project-info">
+                <h3>Sistema de busqueda de leyes</h3>
+                <p>
+                  Sistema de busqueda de leyes ambientales, preservacion del medio ambientales.
+                </p>
+                <div>
+                  <span class="tech-badge">LIDEMA</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+    <section id="contacto">
+            <div class="container contact">
+            <h2 class="section-title">Cantactenos</h2>
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input 
+                        type="text" 
+                        id="nombre" 
+                        name="nombre" 
+                        required placeholder="Tu nombre"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required placeholder="tú@ejemplo.com"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea 
+                        id="mensaje" 
+                        name="mensaje" 
+                        rows="4" 
+                        required placeholder="Cuéntame sobre tu proyecto..."
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar mensaje →</button>
+                </form>
+                <p>* Recibirás respuesta en menos de 48h.</p>
+            </div>
+        </div>
+    </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/10DiezGo/LasinFullStack" target="_blank">GitHub</a>
+                <a href="#" target="_blank">Linkedln</a>
+                <a href="#" target="_blank">Facebook</a>
+            </div>    
+        </div>
+        <p>&copy; 2026 Mi pagina web, todos los derechos reservados </p>
+    </footer>
+</body>
+</html>
