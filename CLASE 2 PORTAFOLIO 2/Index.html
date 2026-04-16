@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="description" content="Portafolio de Diego Aliaga estudiante universitario" />
+    <meta name="keywords" content="universitario" />
+    <meta name="author" content="Diego Aliaga" />
+
+    <meta property="og:title" content="Portafolio de Diego Aliaga" />
+    <meta property="og:description" content="portafolio de Diego Aliaga para lasin fullstack" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+
+    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="navbar">
+          <div class="logo">Diego Aliaga</div>
+          <nav>
+            <ul>
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#acercade">Acerca de</a></li>
+              <li><a href="#servicios">Mis Proyectos</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- <h1>Bienvenido a mi sitio web</h1>   -->
+    </header>
+    <main>
+      <section id="inicio">
+        <div class="container person">
+          <div class="person-content">
+            <span class="person-badge">Disponible para proyectos</span>
+            <h1>Hola, soy <br>  <strong>Diego Aliaga</strong> </h1>
+            <p>Desarrollador de Software y Analista Programador Universitario</p>
+            <div class="actions">
+              <a href="#servicios" class="btn btn--primary"> ver proyectos</a>
+              <a href="#contacto" class="btn btn--secondary">Contáctame</a>
+            </div>
+            <aside class="person-img" aria-hidden="true">
+              <div class="float-card card--a">React</div>
+              <div class="float-card card--b">Nodejs</div>
+              <div class="float-card card--c">Python</div>
+              <div class="avatar">
+                <div class="avatar-interior">DA</div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="acercade">
+        <div class="container about">
+          <h2>Acerca de mí</h2>
+          <p>
+            Soy un apasionado desarrollador de software con experiencia en
+            diversas tecnologías y lenguajes de programación. Me especializo en
+            el desarrollo de aplicaciones web y móviles, y siempre estoy
+            buscando aprender nuevas habilidades para mejorar mis proyectos.
+          </p>
+          <div class="skill-grid">
+            <article class="skill-card skill--backend">
+              <h3>Backend</h3>
+              <ul>
+                <li>Nodejs</li>
+                <li>Php</li>
+                <li>Python</li>
+                <li>Java</li>
+              </ul>
+            </article>
+            <article class="skill-card skill--frontend">
+              <h3>Frontend</h3>
+              <ul>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Angular</li>
+                <li>Vue</li>
+              </ul>
+            </article>
+            <article class="skill-card skill--database">
+              <h3>Base de Datos</h3>
+              <ul>
+                <li>mysql</li>
+                <li>Php</li>
+                <li>Python</li>
+                <li>Java</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicios">
+        <div class="container">
+          <h2>Mis proyectos implementados</h2>
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-img">📱</div>
+              <div class="project-info">
+                <h3>App de Tareas</h3>
+                <p>
+                  Aplicación web con drag & drop, almacenamiento local y modo
+                  oscuro. UI minimalista con microinteracciones.
+                </p>
+                <div>
+                  <span class="tech-badge">React</span>
+                  <span class="tech-badge">CSS Modules</span>
+                  <span class="tech-badge">Flexbox</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-img">🌿</div>
+              <div class="project-info">
+                <h3>EcoShop</h3>
+                <p>
+                  E-commerce sostenible con sistema de filtros, carrito de
+                  compras y diseño responsive.
+                </p>
+                <div>
+                  <span class="tech-badge">HTML5 semántico</span>
+                  <span class="tech-badge">CSS Grid</span>
+                  <span class="tech-badge">JavaScript</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <div class="container contact">
+        <h2 class="section-title">Contáctame</h2>
+          <div class="contact-info">
+
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <div>
+                <strong>Dirección</strong>
+                <p>Calle Puerto Heat N°1044, Zona Tupac Amaru</p>
+              </div>
+            </div>
+          
+            <div class="contact-item">
+              <span class="contact-icon">✉️</span>
+              <div>
+                <strong>Email</strong>
+                <p>tuemail@ejemplo.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-icon">⏱️</span>
+                <div>
+                  <strong>Respuesta</strong>
+                  <p>Menos de 48 horas</p>
+                </div>
+              </div>
+          
+          </div>
+          <div class="contact-form">
+            <form action="#" method="post">
+              <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  required
+                  placeholder="Tu nombre"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="túmail@ejemplo.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="presupuesto">Presupuesto Estimado</label>
+                <span class="rango-valor" id="rango-valor">$1,000 - $5,000</span>
+                <input
+                type="range"
+                id="presupuesto"
+                name="presupuesto"
+                min="1000"
+                max="5000"
+                step="500"
+                value="3000"
+              />
+              </div>
+              <div class="form-group">
+                <label for="servicio">Tipo de servicio</label>
+                <input
+                    type="search"
+                    id="servicio"
+                    name="servicio"
+                    placeholder="Selecciona un servicio"
+                    list="servicios"
+                />
+                <datalist id="servicios">
+                    <option value="Desarrollo web">
+                    <option value="Aplicaciones móviles">
+                    <option value="Consultoría tecnológica">
+                    <option value="Mantenimiento y soporte">
+                </datalist>
+             </div>
+              <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  rows="4"
+                  required
+                  placeholder="Cuéntame sobre tu proyecto..."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-submit">Enviar mensaje →</button>
+            </form>
+            <p >* Recibirás respuesta en menos de 48h.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+            <span class="logo">Diego Aliaga</span>
+            <p>Desarrollador Full Stack - La Paz, Bolivia</p>   
+        </div>
+        <br>
+        <nav class="social-links">
+          <a href="https://github.com/hebertcussi" target="_blank">Github</a>
+          <a href="https://www.linkedin.com/in/hebertcussi" target="_blank">LinkedIn</a>
+          <a href="https://www.facebook.com/hebertcussi" target="_blank">Facebook</a>
+        </nav>
+      </div>
+      <p>&copy; 2026 Mi Sitio Web. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>
