@@ -1,0 +1,910 @@
+/* ============================================================ */
+/*  SESIÓN 1 (base existente): Variables, Reset, Flexbox        */
+/*  SESIÓN 2 (nuevo): CSS Grid, Responsive, Animaciones         */
+/* ============================================================ */
+
+
+/* ============================================================ */
+/* 1. VARIABLES CSS                                             */
+/* ============================================================ */
+:root {
+  /* Colores */
+  --bg-primary:    #f1f5f9;   /* más limpio */
+  --bg-secondary:  #ffffff;
+  --bg-tertiary:   #e0e7ff;
+
+  --text-primary:  #1e293b;   /* más fuerte */
+  --text-secondary:#475569;
+  --text-muted:    #94a3b8;
+
+  --accent:        #4f46e5;   /* azul más sólido */
+  --accent-hover:  #4338ca;
+  --accent-light:  #e0e7ff;
+
+  --accent-2:      #06b6d4;   /* 🔥 cyan moderno */
+  --border:        #e2e8f0;
+  --card-shadow:   0 4px 24px -4px rgba(99,102,241,0.08), 0 1px 4px rgba(0,0,0,0.04);
+
+  /* Transición estándar */
+  --transition:    all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Tipografía */
+  --font-body:     'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Espaciados */
+  --section-py:    6rem;
+  --gap:           2rem;
+}
+
+
+/* ============================================================ */
+/* 2. RESET Y ESTILOS GLOBALES                                  */
+/* ============================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   /* Modelo de caja consistente */
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  /* ✅ ANIMACIÓN: fade-in al cargar la página */
+  animation: pageFadeIn 0.6s ease both;
+}
+
+/* ✅ KEYFRAMES: Entrada de página */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+img, svg { display: block; max-width: 100%; }
+ul { list-style: none; }
+a { color: inherit; }
+
+
+/* ============================================================ */
+/* 3. CONTENEDOR                                                */
+/* ============================================================ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;   /* ✅ rem: unidad relativa */
+}
+
+
+/* ============================================================ */
+/* 4. HEADER / NAVBAR  (Flexbox – Sesión 1)                     */
+/* ============================================================ */
+header {   
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* border-bottom: 1px solid var(--border); */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* ✅ ANIMACIÓN: baja suavemente al cargar */
+  animation: slideDown 0.5s ease both;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+.navbar {
+  display: flex;                   /* Flexbox */
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+}
+
+nav ul {
+  display: flex;       /* Flexbox */
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.4rem 0;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+}
+nav ul li a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+
+/* ============================================================ */
+/* 5. HERO SECTION                                              */
+/*    ✅ CSS GRID: layout 2 columnas hero-content + hero-visual  */
+/* ============================================================ */
+#inicio {
+  padding: var(--section-py) 0;
+  overflow: hidden;
+}
+
+/* ✅ CSS Grid – 2 columnas asimétricas */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* 2 columnas iguales */
+  grid-template-areas: "content visual";
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero-content { grid-area: content; }
+.hero-visual   { grid-area: visual; }
+
+.hero-badge {
+  display: inline-block;
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.5rem;
+  /* ✅ ANIMACIÓN: entrada con delay */
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);  /* ✅ clamp() – unidad relativa fluida */
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.2rem;
+  animation: fadeUp 0.6s 0.35s ease both;
+}
+
+.hero-content h1 strong {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.6s 0.45s ease both;
+}
+
+.hero-actions {
+  display: flex;      /* Flexbox */
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.55s ease both;
+}
+
+/* ✅ KEYFRAMES reutilizable */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --- Hero Visual: tarjetas flotantes ----------------------- */
+.hero-visual {
+  position: relative;
+  height: 340px;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 12px var(--accent-light);
+  /* ✅ ANIMACIÓN: pulso continuo */
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.avatar-inner {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* ✅ KEYFRAMES: pulso */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 12px var(--accent-light); }
+  50%       { box-shadow: 0 0 0 20px rgba(99,102,241,0.08); }
+}
+
+/* Tarjetas flotantes con animación individual */
+.floating-card {
+  position: absolute;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accent);
+  box-shadow: var(--card-shadow);
+  /* ✅ ANIMACIÓN: flotación infinita */
+  animation: float 4s ease-in-out infinite;
+}
+
+.card--a { top: 10%;  left:  5%; animation-delay: 0s;    }
+.card--b { top: 55%;  right: 5%; animation-delay: 1.3s;  }
+.card--c { bottom: 8%; left: 20%; animation-delay: 0.7s; }
+
+/* ✅ KEYFRAMES: flotación */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+
+/* ============================================================ */
+/* 6. SECCIÓN "ACERCA DE"                                       */
+/*    ✅ CSS GRID: grid-template-areas para layout de página     */
+/* ============================================================ */
+#acercade {
+  padding: var(--section-py) 0;
+  background: var(--bg-tertiary);
+}
+
+/* ✅ CSS Grid: Holy Grail con áreas nombradas */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "bio"
+    "skills";
+  gap: 2.5rem;
+}
+
+.about-grid .section-header { grid-area: header; }
+.about-bio                   { grid-area: bio; }
+.skills-grid                 { grid-area: skills; }
+
+.about-bio {
+  text-align: center;
+}
+.about-bio p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  line-height: 1.8;
+  margin: 0 auto;
+}
+
+
+/* ✅ CSS Grid: auto-fill para tarjetas de habilidades */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* columnas flexibles */
+  gap: 1.5rem;
+}
+
+.skill-card {
+  text-align: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.8rem 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  /* ✅ ANIMACIÓN: entrada escalonada */
+  animation: fadeUp 0.5s ease both;
+}
+.skill-card:nth-child(1) { animation-delay: 0.1s; }
+.skill-card:nth-child(2) { animation-delay: 0.2s; }
+.skill-card:nth-child(3) { animation-delay: 0.3s; }
+
+.skill-card:hover {
+  /* ✅ TRANSFORM: elevación en hover */
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 16px 32px -8px rgba(99,102,241,0.15);
+  border-color: var(--accent);
+}
+
+.skill-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.skill-icon i {
+  font-size: 3rem;   /* más profesional */
+}
+.skill-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.skill-card li {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  padding: 0.25rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+.skill-card li:last-child { border-bottom: none; }
+
+/* Colores de acento por tipo de skill */
+.skill--backend h3  { color: #2629ce; }
+.skill--frontend h3 { color: #8323dd; }
+.skill--db h3       { color: #058ba3; }
+
+
+/* ============================================================ */
+/* 7. SECCIÓN PROYECTOS                                         */
+/*    ✅ CSS GRID: auto-fill responsive, sin media queries extra */
+/* ============================================================ */
+#servicios {
+  padding: var(--section-py) 0;
+}
+
+.projects-grid {
+  display: grid;
+  /* ✅ Columnas flexibles: se adaptan solas sin media queries */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--gap);
+  margin-top: 2.5rem;
+}
+
+.project-card {
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+  display: grid;
+  grid-template-rows: 180px 1fr;   /* ✅ Grid interno: imagen fija + info flexible */
+  transition: var(--transition);
+}
+
+.project-card:hover {
+  /* ✅ TRANSFORM: elevación */
+  transform: translateY(-8px);
+  box-shadow: 0 24px 40px -12px rgba(99,102,241,0.2);
+}
+
+.project-img {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  transition: var(--transition);
+}
+.project-card:hover .project-img {
+  /* ✅ TRANSFORM: escala la imagen al pasar el cursor */
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;    /* Flexbox interno */
+  gap: 0.75rem;
+}
+
+.project-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.project-info p {
+  color: var(--text-secondary);
+  font-size: 0.93rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.tech-badge {
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+
+/* ============================================================ */
+/* 8. SECTION HEADERS (reutilizable)                            */
+/* ============================================================ */
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.section-header h2 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+
+/* ============================================================ */
+/* 9. BOTONES                                                   */
+/* ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn--primary:hover {
+  background: var(--accent-hover);
+  /* ✅ TRANSFORM: sube levemente */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -4px rgba(99,102,241,0.4);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.btn--outline:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+
+/* ============================================================ */
+/* 10. SECCIÓN CONTACTO                                         */
+/*     ✅ CSS GRID: contact-layout con sidebar + form           */
+/* ============================================================ */
+#contacto {
+  padding: var(--section-py) 0;
+  background: var(--bg-tertiary);
+}
+
+/* ✅ CSS Grid: 2 columnas, info lateral + formulario */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;   /* info 1/3, form 2/3 */
+  grid-template-areas: "info form";
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-info { grid-area: info; }
+.contact-form  { grid-area: form; }
+
+/* Info de contacto */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem;
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+.contact-item:hover {
+  transform: translateX(6px);
+  border-color: var(--accent);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.contact-item strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-item p {
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+}
+
+/* Formulario */
+.contact-form {
+  background: var(--bg-secondary);
+  padding: 2.5rem;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.range-value {
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 0.1rem 0.5rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ✅ Inputs HTML5 modernos */
+input,
+textarea {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: var(--transition);
+  width: 100%;
+}
+
+input[type="range"] {
+  padding: 0;
+  border: none;
+  background: none;
+  accent-color: var(--accent);
+  cursor: pointer;
+  height: 6px;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.12);
+  /* ✅ TRANSFORM: leve escala al foco */
+  transform: scaleX(1.005);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.02em;
+}
+.btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -4px rgba(99,102,241,0.45);
+  filter: brightness(1.07);
+}
+/* ✅ ANIMACIÓN: estado activo del botón */
+.btn-submit:active {
+  transform: translateY(0) scale(0.98);
+}
+
+
+/* ============================================================ */
+/* 11. FOOTER                                                   */
+/*     ✅ CSS Grid: 2 columnas brand + social                   */
+/* ============================================================ */
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 0 1.5rem;
+  margin-top: 0;
+}
+
+/* ✅ CSS Grid: footer en 2 columnas */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+}
+
+.social-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  /* ✅ TRANSICIÓN: underline animado */
+  transition: width 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  /* ✅ TRANSFORM: sube el link */
+  transform: translateY(-3px);
+}
+.social-links a:hover::after { width: 100%; }
+
+.footer-copy {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+
+/* ============================================================ */
+/* 12. ✅ RESPONSIVE DESIGN – MOBILE FIRST                      */
+/*     Base = móvil → se amplía con min-width                   */
+/* ============================================================ */
+
+/* --- Móvil (< 480px): base, sin media queries extra ---------- */
+/* Todo el CSS de arriba ya es simple y apilado cuando grid
+   colapsa a 1 columna en pantallas pequeñas.                   */
+
+
+/* --- Tablets (≥ 640px) --------------------------------------- */
+@media (min-width: 640px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* --- Laptops (≥ 768px) --------------------------------------- */
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+      "header header"
+      "bio    bio"
+      "skills skills";
+  }
+
+  /* ✅ CSS Grid: contacto en 2 columnas a partir de tablet */
+  .contact-layout {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+
+/* --- Desktops (≥ 1024px) ------------------------------------- */
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+
+/* --- Pantallas grandes (≥ 1280px) ---------------------------- */
+@media (min-width: 1280px) {
+  :root { --section-py: 7rem; }
+
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ============================================================ */
+/* 13. ✅ RESPONSIVE: COLAPSO MOBILE (max-width)                */
+/* ============================================================ */
+@media (max-width: 767px) {
+  /* Hero: apila columnas en móvil */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "visual";
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-content p { margin-inline: auto; }
+
+  .hero-visual {
+    height: 220px;
+  }
+
+  /* Contacto: apila en móvil */
+  .contact-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "form"
+      "info";
+  }
+
+  /* Footer apilado */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .social-links {
+    justify-content: center;
+  }
+}
+
+
+/* ============================================================ */
+/* 14. ✅ ANIMACIONES @keyframes ADICIONALES                    */
+/* ============================================================ */
+
+/* Rotación suave para elementos decorativos */
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Shimmer / brillo de carga */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* Shake para feedback de error en form */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+/* Aplicar shake si un input requerido está vacío al enviar */
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+  border-color: #f87171;
+  animation: shake 0.4s ease;
+}
+
+
+/* ============================================================ */
+/* 15. ✅ UTILITY: SCROLL REVEAL (sin JS, usando animation-delay)*/
+/* ============================================================ */
+.section-header,
+.about-bio,
+.project-card,
+.contact-item {
+  animation: fadeUp 0.6s ease both;
+}
+
+/* Efecto hover en tarjetas de proyectos: brillo degradado */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,0.06) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.project-card { position: relative; }
+.project-card:hover::before { opacity: 1; }
