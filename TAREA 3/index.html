@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ✅ SEO & Open Graph Meta Tags -->
+    <title>Diego Aliaga Tarea 2</title>
+    <meta name="description" content="Portafolio de Diego Aliaga estudiante universitario" />
+    <meta name="keywords" content="universitario" />
+    <meta name="author" content="Diego Aliaga" />
+
+    <meta property="og:title" content="Portafolio de Diego Aliaga" />
+    <meta property="og:description" content="portafolio de Diego Aliaga para lasin fullstack" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  </head>
+  <body>
+
+    <!-- ✅ <header> semántico con navegación -->
+    <header>
+      <div class="container">
+        <div class="navbar">
+          <div class="logo">Diego Aliaga Candia</div>
+          <nav aria-label="Navegación principal">
+            <ul>
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#acercade">Acerca de</a></li>
+              <li><a href="#servicios">Mis Proyectos</a></li>
+              <li><a href="#apis">Apis</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="inicio" aria-label="Presentación">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <span class="hero-badge">Disponible para proyectos</span>
+            <h1>Hola, soy<br><strong>Diego Aliaga</strong></h1>
+            <p>Desarrollador de Softwar, Estudiante Universitario de la facultad de Ciencias Puras y Naturales - Informática</p>
+            <div class="hero-actions">
+              <a href="#servicios" class="btn btn--primary">Ver proyectos</a>
+              <a href="#contacto" class="btn btn--outline">Contáctame</a>
+            </div>
+          </div>
+          <aside class="hero-visual" aria-hidden="true">
+            <div class="floating-card card--a">Angular</div>
+            <div class="floating-card card--b">Kotlin</div>
+            <div class="floating-card card--c">PostgreSQL</div>
+            <div class="avatar-ring">
+              <div class="avatar-inner">DA</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ✅ <section> Acerca de -->
+      <section id="acercade" aria-label="Acerca de mí">
+        <div class="container about-grid">
+
+          <header class="section-header">
+            <h2>Acerca de mí</h2>
+            <p>Apasionado por construir aplicaciones web y móviles con tecnologías modernas.</p>
+          </header>
+
+          <div class="about-bio">
+            <p>
+              Soy desarrollador de software enfocado en crear soluciones reales
+              para instituciones y organizaciones. Actualmente trabajo en el desarrollo
+              de sistemas web.
+              Me interesa el desarrollo backend, bases de datos y arquitectura de sistemas.
+            </p>
+          </div>
+
+          <!-- CSS Grid: layout de habilidades con grid-template-areas -->
+          <div class="skills-grid" aria-label="Lenguajes y tecnologías">
+            <article class="skill-card skill--backend">
+              <span class="skill-icon">
+                <i class="devicon-nodejs-plain colored"></i>
+              </span>
+              <h3>Back-End</h3>
+              <ul>
+                <li>Node.js (NestJS, Express)</li>
+                <li>PHP (Laravel)</li>
+                <li>Python (Django)</li>
+                <li>Java (Spring)</li>
+              </ul>
+            </article>
+            <article class="skill-card skill--frontend">
+              <span class="skill-icon">
+                <i class="devicon-react-original colored"></i>
+              </span>
+              <h3>Front-End</h3>
+              <ul>
+                <li>JavaScript / TypeScript</li>
+                <li>React</li>
+                <li>Angular</li>
+              </ul>
+            </article>
+            <article class="skill-card skill--db">
+              <span class="skill-icon">
+                <i class="devicon-mysql-plain colored"></i>
+              </span>
+              <h3>Bases de Datos</h3>
+              <ul>
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+                <li>MongoDB</li>
+              </ul>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ✅ <section> Proyectos con CSS Grid + <article> semántico -->
+      <section id="servicios" aria-label="Proyectos implementados">
+        <div class="container">
+          <header class="section-header">
+            <h2>Mis proyectos implementados</h2>
+            <p>Soluciones reales construidas con tecnologías modernas.</p>
+          </header>
+
+          <!-- CSS Grid: auto-fill responsive, sin media queries extra -->
+          <!--
+          <div class="projects-grid">
+
+            <article class="project-card">
+              <div class="project-img">
+                  <i class="devicon-nodejs-plain colored"></i>
+                  <i class="devicon-postgresql-plain colored"></i>
+              </div>
+              <div class="project-info">
+                <h3>Sistema de Gestión Académica</h3>
+                <p>
+                Sistema completo para instituciones educativas (Don Bosco) que permite
+                administrar estudiantes, notas, asistencia y reportes académicos.
+                </p>
+                <footer class="project-tags">
+                  <span class="tech-badge">Node.js</span>
+                  <span class="tech-badge">PostgreSQL</span>
+                  <span class="tech-badge">React</span>
+                </footer>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-img">
+                  <i class="devicon-javascript-plain colored"></i>
+                  <i class="devicon-html5-plain colored"></i>
+              </div>
+              <div class="project-info">
+                <h3>Buscador de Leyes Ambientales</h3>
+                <p>
+                Sistema de búsqueda inteligente desarrollado para LIDEMA que permite
+                consultar leyes ambientales de forma rápida y organizada.
+                </p>
+                <footer class="project-tags">
+                  <span class="tech-badge">JavaScript</span>
+                  <span class="tech-badge">HTML5</span>
+                  <span class="tech-badge">CSS Grid</span>
+                </footer>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-img">
+                <i class="devicon-react-original colored"></i>
+                <i class="devicon-nodejs-plain colored"></i>
+              </div>
+              <div class="project-info">
+                <h3>Panel Administrativo</h3>
+                  <p>
+                  Dashboard interactivo con métricas y visualización de datos en tiempo real
+                  para gestión de información.
+                  </p>
+              </div>
+            </article>
+          </div>
+          -->
+          <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="frontend">Front-End</button>
+            <button class="filter-btn" data-filter="backend">Back-End</button>
+            <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+          </div>
+          <p id="project-count"></p>
+            <div class="projects-grid" id="projects-grid"></div>
+        </div>
+      </section>
+
+            <section id="apis" aria-label="Consumo de APIs públicas">
+        <div class="container">
+          <header class="section-header">
+            <h2>APIs Públicas en Vivo</h2>
+            <p>Ejemplos reales de Fetch API, <code>async/await</code> y <code>Promise.all</code>.</p>
+          </header>
+
+          <div class="apis-grid">
+
+            <!-- ✅ Sesión 4: PokeAPI – 6 peticiones en paralelo con Promise.all -->
+            <div class="api-panel" id="poke-section">
+              <div class="api-panel__header">
+                <span class="api-badge">PokeAPI</span>
+                <h3>Pokémon con <code>Promise.all()</code></h3>
+                <p>Carga 6 Pokémon <strong>en paralelo</strong>. Cada tarjeta es una promesa independiente.</p>
+              </div>
+              <div id="poke-grid" class="poke-grid"></div>
+              <button id="poke-next" class="btn btn--outline btn--sm">Cargar siguientes →</button>
+            </div>
+
+            <!-- ✅ Sesión 4: REST Countries – Fetch GET + destructuring de respuesta -->
+            <div class="api-panel">
+              <div class="api-panel__header">
+                <span class="api-badge">REST Countries</span>
+                <h3>Buscar país</h3>
+                <p>Fetch GET con <strong>async/await</strong> y <strong>destructuring</strong> del objeto JSON.</p>
+              </div>
+              <div class="country-search-box">
+                <input
+                  type="search"
+                  id="country-search"
+                  placeholder="Escribe un país… ej: Bolivia"
+                  aria-label="Buscar país"
+                />
+              </div>
+              <div id="country-result" class="country-result"></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ✅ <section> Contacto con formulario HTML5 validado -->
+      <section id="contacto" aria-label="Contacto">
+        <div class="container>
+          <header class="section-header">
+            <h2>Contáctame</h2>
+            <p>¿Tienes un proyecto en mente? Hablemos.</p>
+          </header>
+
+          <div class="contact-layout">
+            <!-- Info lateral -->
+            <aside class="contact-info">
+              <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <div>
+                  <strong>Email</strong>
+                  <p>diego.aliaga.candia@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div>
+                  <strong>Ubicación</strong>
+                  <p>La Paz, Bolivia</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">⏱️</span>
+                <div>
+                  <strong>Respuesta</strong>
+                  <p>Menos de 48 horas</p>
+                </div>
+              </div>
+            </aside>
+
+            <!-- Formulario con inputs HTML5 modernos -->
+            <div class="contact-form">
+              <form action="#" method="post" novalidate>
+                <div class="form-group">
+                  <label for="nombre">Nombre completo</label>
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    required
+                    minlength="3"
+                    placeholder="Tu nombre completo"
+                    autocomplete="name"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Correo electrónico</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="tú@ejemplo.com"
+                    autocomplete="email"
+                  />
+                </div>
+
+                <!-- ✅ Input moderno: date -->
+                <div class="form-group">
+                  <label for="fecha">Fecha preferida de contacto</label>
+                  <input
+                    type="date"
+                    id="fecha"
+                    name="fecha"
+                  />
+                </div>
+
+                <!-- ✅ Input moderno: range -->
+                <div class="form-group">
+                  <label for="presupuesto">
+                    Presupuesto estimado:
+                    <span class="range-value" id="presupuesto-val">$500</span>
+                  </label>
+                  <input
+                    type="range"
+                    id="presupuesto"
+                    name="presupuesto"
+                    min="100"
+                    max="5000"
+                    step="100"
+                    value="500"
+                  />
+                  <div class="range-labels">
+                    <span>$100</span><span>$5000</span>
+                  </div>
+                </div>
+
+                <!-- ✅ Input moderno: search como selector de servicio -->
+                <div class="form-group">
+                  <label for="servicio">Tipo de servicio</label>
+                  <input
+                    type="search"
+                    id="servicio"
+                    name="servicio"
+                    list="servicios-list"
+                    placeholder="Busca un servicio..."
+                  />
+                  <datalist id="servicios-list">
+                    <option value="Desarrollo Web Full Stack">
+                    <option value="API REST / Back-End">
+                    <option value="Diseño UI / Front-End">
+                    <option value="Base de Datos">
+                    <option value="Consultoría Técnica">
+                  </datalist>
+                </div>
+
+                <div class="form-group">
+                  <label for="mensaje">Mensaje</label>
+                  <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    rows="4"
+                    required
+                    minlength="20"
+                    placeholder="Cuéntame sobre tu proyecto..."
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar mensaje →</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ✅ <footer> semántico -->
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <span class="logo">Diego Aliaga Candia</span>
+          <p>Desarrollador Full Stack · La Paz, Bolivia</p>
+        </div>
+        <nav class="social-links" aria-label="Redes sociales">
+          <a href="https://github.com/10DiezGo/LasinFullStack" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+          <a href="" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+          <a href="" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 Diego Aliaga Candia. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+      // Actualizar valor del range en tiempo real
+      const range = document.getElementById('presupuesto');
+      const val   = document.getElementById('presupuesto-val');
+      if (range && val) {
+        range.addEventListener('input', () => {
+          val.textContent = '$' + Number(range.value).toLocaleString();
+        });
+      }
+    </script>
+      <script src="assets/js/app.js"></script>
+  </body>
+</html>
